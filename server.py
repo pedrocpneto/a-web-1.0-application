@@ -62,12 +62,12 @@ class Contact:
     def save(self):
         Contact._id_counter += 1
         self._id = Contact._id_counter
-        Contact._db[self._id] = self
+        Contact._db[str(self._id)] = self
         return True
 
     @staticmethod
     def all():
-        return Contact._db
+        return Contact._db.values()
 
     @staticmethod
     def search(search):
